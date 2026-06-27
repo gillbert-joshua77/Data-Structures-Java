@@ -45,6 +45,22 @@
             newNode.next = temp.next;
             temp.next = newNode;
         }
+        void delete(int data){
+            Node temp = head;
+            if (head.data == data){
+                head = head.next;
+                return;
+            }
+            while (temp.next != null && temp.next.data != data){
+                temp = temp.next;
+            }
+            if (temp.next == null){
+                System.out.println("Invalid index");
+                return;
+            }
+            temp.next = temp.next.next;
+        }
+
         void Display(){
             Node temp = head;
             System.out.print("Head->");
@@ -60,6 +76,8 @@
             list.insertBeginning(2);
             list.insertEnd(0);
             list.insertMid(0,3);
+            list.delete(1);
             list.Display();
+
         }
     }
